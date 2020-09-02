@@ -33,8 +33,9 @@ all_data <- rbind(C9M, C30M, C40M, C8M, C25M, C57M, C65M,C74M, C76M)
 ##########################################################################################################################################################
 
 # SECTION 2
-# create binomial activity data, 0 is inactive, 1 is active
+# making the dataframes we want
 
+# create binomial activity data, 0 is inactive, 1 is active
 inactive <- subset(all_data, vedba <= 0.05) 
 active <- subset(all_data, vedba >= 0.05)
 inactive$state <- NA
@@ -63,7 +64,8 @@ names(active_minutes) [1] <- "Age"
 names(active_minutes) [2] <- "Tag"
 names(active_minutes) [3] <- "active_mins"
 active_minutes$Tag <- as.factor(active_minutes$Tag)
-##########################################################################################################################################################
+
+
 # calculate crepuscularity index
 
 # create a new df with the mean vedba for the period, for each age day
@@ -98,6 +100,10 @@ crep_data_3 <- rbind(dawncrep, duskcrep)
 ##    END   ##
 
 ##########################################################################################################################################################
+
+# SECTION 3
+# plots, assorted
+
 library(ggplot2)
 library(ggridges)
 library(mgcv)
